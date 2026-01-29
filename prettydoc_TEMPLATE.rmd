@@ -1,0 +1,105 @@
+---
+title: "TEMPLATE TITLE REPORT"
+author: "Jonathan Chan"
+date: "2026-01-07"
+output:
+  prettydoc::html_pretty:
+    theme: cayman
+    highlight: github
+---
+
+```{css theme-override, echo = FALSE}
+.page-header {
+    background-image: linear-gradient(120deg, 
+#6bbc42, #42742a);
+}
+.main-content h1,
+.main-content h2,
+.main-content h3,
+.main-content h4,
+.main-content h5,
+.main-content h6 {
+    color: #42742a
+}
+
+```
+
+```{r setup, include=FALSE}
+# install.packages("devtools")
+# require(devtools)
+# install_github("lchiffon/wordcloud2")
+# Install.packages("tm")
+
+library(ggplot2)
+library(readxl)
+library(tidyverse)
+library(scales) # for percentage 
+# library(wordcloud2) # for wordcloud
+library(RColorBrewer) #for color schemes
+library(tm)
+
+
+#GLOBAL OPTIONS: don't show code, results,  and warnings 
+### DEBUG MOD: 
+# knitr::opts_chunk$set(echo = FALSE,
+#                       results=TRUE,
+#                       warning=TRUE)
+### USE BELOW WHEN CREATING FINAL CHART: don't show code, results,  and warnings 
+knitr::opts_chunk$set(echo = FALSE,
+                      results=FALSE,
+                      warning=FALSE)
+
+#remove scientific notation
+options(scipen=999)
+```
+
+
+```{r import survey, echo=FALSE,results='hide',message=FALSE}
+
+# file_path <- "data/EXCEL_FILENAME_HERE.xlsx"
+# sheet_names <- excel_sheets(path = file_path)
+
+### If multiple sheets, use this fn to get 
+# raw_dfs <- lapply(sheet_names, function(sheet_name) {
+#   read_excel(file_path, sheet = sheet_name)
+# })
+
+```
+
+### Insert 
+
+```{r final_vars}
+### Set p1, p2, p3 to the ggplot variables
+
+kpi1 <- "100"
+kpi2 <- "200"
+kpi3 <- "300"
+
+kpi1 <- as.character(kpi1)
+kpi2 <- as.character(kpi2)
+kpi3 <- as.character(kpi3)
+
+```
+
+# TEST TITLE
+
+Goal: Show the key research question.
+
+Steps:
+
+
+1. data wrangle using cells above header title
+2. Put display plot variables - p1, p2, p3 - to show graphs
+3. show tables using knitr::kable() to show agg tables (use head or wrangle to be less than a few cols)
+4. 3 key findings using Sub header and `r as.character("variable")` to show variables in R markdown report
+
+
+### Key finding 1:  The program supported a total of **`r kpi1`** seniors in aging at home, **`r kpi2`** of which were new seniors to the program.
+
+```{r fig.show="hold", results=TRUE}
+#p1
+# knitr::kable(kpi_totals)
+```
+
+###### INSERT FOOTNOTE HERE
+###### INSERT DATE LAST UPDATED
